@@ -8348,6 +8348,13 @@ class Client(BaseClient):
         """
         return self._request_margin_api('get', 'convert/tradeFlow', signed=True, data=params)
 
+    def fetch_users_customization(self, **params):
+        # https://binance-docs.github.io/apiAgent-API-EN/api_rebate_endpoints_spot_EN/
+        return self._request_margin_api('get', '/sapi/v1/apiReferral/customization', signed=True, data=params)
+
+    def register_user_customization(self, **params):
+        return self._request_margin_api('post', '/sapi/v1/apiReferral/customization', signed=True, data=params)
+
     def get_spot_rebate_history(self, **params):
         """Get C2C Trade History
 
