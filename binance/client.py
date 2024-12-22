@@ -5859,6 +5859,10 @@ class Client(BaseClient):
         """
         return self._request_margin_api('get', 'sub-account/futures/internalTransfer', True, data=params)
 
+    def create_virtual_sub_account(self, **params):
+        # '/sapi/v1/sub-account/virtualSubAccount'
+        return self._request_margin_api('post', 'sub-account/virtualSubAccount', True, data=params)
+
     def create_sub_account_futures_transfer(self, **params):
         """Execute sub-account Futures transfer
 
