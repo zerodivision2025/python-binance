@@ -6677,11 +6677,11 @@ class Client(BaseClient):
         url_path = 'portfolio/repay-futures-negative-balance'
         return self._request_margin_api('post', url_path, True, data={})
 
-    def post_bfusd_mint(self, from_asset, target_asset, amount):
+    def post_portfolio_mint(self, from_asset, target_asset, amount):
         url_path = 'portfolio/mint'
         return self._request_margin_api('post', url_path, True, data={'fromAsset':from_asset, 'targetAsset':target_asset, 'amount':amount})
 
-    def post_bfusd_redeem(self, from_asset, target_asset, amount):
+    def post_portfolio_redeem(self, from_asset, target_asset, amount):
         url_path = 'portfolio/redeem'
         return self._request_margin_api('post', url_path, True, data={{'fromAsset':from_asset, 'targetAsset':target_asset, 'amount':amount}})
 
