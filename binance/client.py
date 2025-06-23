@@ -6683,7 +6683,7 @@ class Client(BaseClient):
 
     def post_portfolio_redeem(self, from_asset, target_asset, amount):
         url_path = 'portfolio/redeem'
-        return self._request_margin_api('post', url_path, True, data={{'fromAsset':from_asset, 'targetAsset':target_asset, 'amount':amount}})
+        return self._request_margin_api('post', url_path, True, data={'fromAsset':from_asset, 'targetAsset':target_asset, 'amount':amount})
 
     def post_loan_flexible_borrow(self, loanCoin, loanAmount, collateralCoin, collateralAmount):
         url_path = 'loan/flexible/borrow'
