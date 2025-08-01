@@ -4069,6 +4069,12 @@ class Client(BaseClient):
         """
         return self._request_margin_api('post', 'margin/max-leverage', signed=True, data=params)
 
+    def get_margin_trade_coeff(self, **params):
+        """
+        https://developers.binance.com/docs/zh-CN/margin_trading/account/Get-Summary-Of-Margin-Account
+        """
+        return self._request_margin_api('get', 'margin/tradeCoeff', signed=True, data=params)
+
     def get_margin_transfer_history(self, **params):
         """Query margin transfer history
 
