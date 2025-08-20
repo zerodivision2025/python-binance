@@ -3088,6 +3088,12 @@ class Client(BaseClient):
         """
         return self._request_margin_api('get', 'margin/account', True, data=params)
 
+    def get_margin_available_inventory(self, **params):
+        """
+        https://developers.binance.com/docs/zh-CN/margin_trading/market-data/Query-margin-avaliable-inventory
+        """
+        return self._request_margin_api('get', 'margin/available-inventory', True, data=params)
+
     def get_isolated_margin_account(self, **params):
         """Query isolated margin account details
 
@@ -5385,6 +5391,12 @@ class Client(BaseClient):
 
          """
         return self._request_margin_api('get', 'simple-earn/account', signed=True, data=params)
+
+    def get_simple_earn_flexible_reward(self, **params):
+        """
+        https://developers.binance.com/docs/zh-CN/simple_earn/history/Get-Flexible-Rewards-History
+        """
+        return self._request_margin_api('get', 'simple-earn/flexible/history/rewardsRecord', signed=True, data=params)
 
     # Lending Endpoints
 
