@@ -8380,18 +8380,18 @@ class Client(BaseClient):
 
     def link_spot_if_new_user(self, **params):
         # https://binance-docs.github.io/apiAgent-API-EN/api_rebate_endpoints_spot_EN/
-        return self._request_margin_api('get', '/sapi/v1/apiReferral/ifNewUser', signed=True, data=params)
+        return self._request_margin_api('get', 'apiReferral/ifNewUser', signed=True, data=params)
 
     def fetch_users_customization(self, **params):
         # https://binance-docs.github.io/apiAgent-API-EN/api_rebate_endpoints_spot_EN/
-        return self._request_margin_api('get', '/sapi/v1/apiReferral/customization', signed=True, data=params)
+        return self._request_margin_api('get', 'apiReferral/customization', signed=True, data=params)
 
     def register_user_customization(self, **params):
-        return self._request_margin_api('post', '/sapi/v1/apiReferral/customization', signed=True, data=params)
+        return self._request_margin_api('post', 'apiReferral/customization', signed=True, data=params)
 
     def link_spot_recent_rebate(self, **params):
         # https://binance-docs.github.io/apiAgent-API-EN/api_rebate_endpoints_spot_EN/
-        return self._request_margin_api('get', '/sapi/v1/apiReferral/rebate/recentRecord', signed=True, data=params)
+        return self._request_margin_api('get', 'apiReferral/rebate/recentRecord', signed=True, data=params)
 
     def get_spot_rebate_history(self, **params):
         """Get C2C Trade History
