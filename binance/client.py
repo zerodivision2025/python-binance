@@ -6710,7 +6710,7 @@ class Client(BaseClient):
 
     def get_loan_flexible_loanable_data(self, loanCoin=None):
         url_path = 'loan/flexible/loanable/data'
-        return self._request_margin_api('get', url_path, True, data={'loanCoin': loanCoin})
+        return self._request_margin_api('get', url_path, True, data={'loanCoin': loanCoin}, version=2)
 
     # Futures API
 
