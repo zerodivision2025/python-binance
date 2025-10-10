@@ -8379,24 +8379,37 @@ class Client(BaseClient):
         return self._request_margin_api('get', 'convert/tradeFlow', signed=True, data=params)
 
     def link_spot_if_new_user(self, **params):
-        # https://binance-docs.github.io/apiAgent-API-EN/api_rebate_endpoints_spot_EN/
+        # https://developers.binance.com/docs/zh-CN/binance_link/link-and-trade/spot
         return self._request_margin_api('get', 'apiReferral/ifNewUser', signed=True, data=params)
 
-    def fetch_users_customization(self, **params):
-        # https://binance-docs.github.io/apiAgent-API-EN/api_rebate_endpoints_spot_EN/
+    def fetch_customization(self, **params):
+        # https://developers.binance.com/docs/zh-CN/binance_link/link-and-trade/spot/Get-Client-Email-Customized-Id
         return self._request_margin_api('get', 'apiReferral/customization', signed=True, data=params)
 
-    def register_user_customization(self, **params):
+    def fetch_users_customization(self, **params):
+        # https://developers.binance.com/docs/zh-CN/binance_link/link-and-trade/spot/Get-User-Customize-Id
+        return self._request_margin_api('get', 'apiReferral/userCustomization', signed=True, data=params)
+
+    def register_customization(self, **params):
+        # https://developers.binance.com/docs/zh-CN/binance_link/link-and-trade/spot/Customize-Id-For-Client-For-Partner
         return self._request_margin_api('post', 'apiReferral/customization', signed=True, data=params)
 
+    def register_user_customization(self, **params):
+        # https://developers.binance.com/docs/zh-CN/binance_link/link-and-trade/spot/Customize-Id-For-Client-For-Client
+        return self._request_margin_api('post', 'apiReferral/userCustomization', signed=True, data=params)
+
     def link_spot_recent_rebate(self, **params):
-        # https://binance-docs.github.io/apiAgent-API-EN/api_rebate_endpoints_spot_EN/
+        # https://developers.binance.com/docs/zh-CN/binance_link/link-and-trade/spot/Query-Rebate-Recent-Record-For-Partner
         return self._request_margin_api('get', 'apiReferral/rebate/recentRecord', signed=True, data=params)
+
+    def broker_spot_recent_rebate(self, **params):
+        # https://developers.binance.com/docs/zh-CN/binance_link/exchange-link/fee/Query-Spot-Commission-Rebate-Recent-Record
+        return self._request_margin_api('get', 'broker/rebate/recentRecord', signed=True, data=params)
 
     def get_spot_rebate_history(self, **params):
         """Get C2C Trade History
 
-        https://binance-docs.github.io/apidocs/spot/en/#get-spot-rebate-history-records-user_data
+        https://developers.binance.com/docs/zh-CN/rebate/rest-api
 
         :param startTime: required - Start Time - 1593511200000
         :type startTime: int
