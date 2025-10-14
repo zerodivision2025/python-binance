@@ -5580,6 +5580,12 @@ class Client(BaseClient):
         """
         return self._request_margin_api('get', 'eth-staking/eth/history/redemptionHistory', signed=True, data=params, version=1)
 
+    def get_sol_staking_redemption_history(self, **params):
+        """查询 SOL 赎回记录 (USER_DATA)
+        https://developers.binance.com/docs/zh-CN/staking/sol-staking/history/Get-SOL-redemption-history
+        """
+        return self._request_margin_api('get', 'sol-staking/sol/history/redemptionHistory', signed=True, data=params, version=1)
+
     def get_sol_staking_rate_history(self, **params):
         """查询 bnsol 汇率历史 (USER_DATA)
         https://developers.binance.com/docs/staking/sol-staking/history/Get-BNSOL-Rate-History
