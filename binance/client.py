@@ -3088,6 +3088,9 @@ class Client(BaseClient):
         """
         return self._request_margin_api('get', 'margin/account', True, data=params)
 
+    def get_margin_capital_flow(self, **params):
+        return self._request_margin_api('get', 'margin/capital-flow', True, data=params)
+
     def get_margin_available_inventory(self, **params):
         """
         https://developers.binance.com/docs/zh-CN/margin_trading/market-data/Query-margin-avaliable-inventory
