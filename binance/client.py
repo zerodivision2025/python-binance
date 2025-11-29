@@ -5607,6 +5607,16 @@ class Client(BaseClient):
         """
         return self._request_margin_api('post', 'sol-staking/sol/redeem', signed=True, data=params)
 
+    def call(self, field, method, path, **params):
+        """
+        field: margin
+        method: post
+        """
+        if field in {"margin"}:
+            return self._request_margin_api(method, path, data=params, signed=True)
+        else:
+            raise NotImplementedError()
+
     # US Staking Endpoints
 
     def get_staking_asset_us(self, **params):
