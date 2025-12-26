@@ -5614,6 +5614,8 @@ class Client(BaseClient):
         """
         if field in {"margin"}:
             return self._request_margin_api(method, path, data=params, signed=True)
+        elif field in {"options"}:
+            return self._request_options_api(method, path, data=params, signed=True)
         else:
             raise NotImplementedError()
 
