@@ -357,9 +357,9 @@ class Client(BaseClient):
 
         kwargs = self._get_request_kwargs(method, signed, force_params, **kwargs)
 
-        logging.debug(kwargs)
+        logger.debug(kwargs)
         self.response = getattr(self.session, method)(uri, **kwargs)
-        logging.debug(kwargs)
+        logger.debug(kwargs)
         return self._handle_response(self.response)
 
     @staticmethod
