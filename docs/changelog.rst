@@ -1,5 +1,266 @@
 Changelog
+
+v1.0.37 - 2026-06-08
+^^^^^^^^^^^^^^^^^^^^
+
+**Added**
+- minor ids adustments
+
+v1.0.36 - 2026-03-24
+^^^^^^^^^^^^^^^^^^^^
+
+**Added**
+- feat: USD-M futures WebSocket URL category support #1684
+
+**Fixed**
+- fix: propagate connection errors to subscription queues #1681
+
+v1.0.35 - 2026-02-16
+^^^^^^^^^^^^^^^^^^^^
+
+**Added**
+
+- chore: normalize package name by @carlosmiei in https://github.com/sammchardy/python-binance/pull/1653
+- feat: upgrade margin socket to use websocket api by @pcriadoperez in https://github.com/sammchardy/python-binance/pull/1670
+- feat: Update futures algo order API with new TP/SL parameters by @paul-lestyo in https://github.com/sammchardy/python-binance/pull/1672
+
+**Fixed**
+- fix: reconnects for websocket connection closed ok and ws-api by @pcriadoperez in https://github.com/sammchardy/python-binance/pull/1655
+
+v1.0.34 - 2025-12-16
+^^^^^^^^^^^^^^^^^^^^
+
+**Added**
+- verbose mode for inspecting requests (verbose=True) (#1642)
+- feat: add support for rpi orders (#1644)
+- feat: update futures ticker endpoint to v2 (#1650)
+- feat: add support for websocket algo orders (#1646)
+- docs: add missing doc references from async client (#1651)
+
+**Fixed**
+
+- fix: remove duplicate import and replace type() with isinstance() (#1623)
+- fix(client): use proper exception instead of assert for US endpoints (#1641)
+
+v1.0.33 - 2025-12-06
+^^^^^^^^^^^^^^^^^^^^
+
+**Fixed**
+
+- fix: reconnect keep alive (#1637)
+
+**Added**
+
+- moved conditional orders to the new futures algo serivce (#1639)
+
+v1.0.32 - 2025-11-03
+^^^^^^^^^^^^^^^^^^^^
+
+**Fixed**
+
+-  signature encoding for non-ascii symbols in both private and public endpoints (#1619)
+
+
+v1.0.30 - 2025-10-14
+^^^^^^^^^^^^^^^^^^^^
 =========
+
+v1.0.31 - 2025-10-29
+^^^^^^^^^^^^^^^^^^^^
+
+**Fixed**
+
+- fix signature encoding for non-ascii symbols (#1612), eg: 币安人生USDT
+
+
+v1.0.30 - 2025-10-14
+^^^^^^^^^^^^^^^^^^^^
+
+**Fixed**
+
+- Set default limit=None for futures_historical_klines* (fetch full range by default) (#1607)
+- fixed a typo in a method name (#1605)
+- all links updated (#1600)
+- throw readloopclosed error if trying to connect once read loop is already closed (#1593)
+- ensure spot v3 version (#1587
+
+
+**Added**
+- Demo trading
+- websocket userdatastream.signature support, deprecate listenkey for spot market
+
+
+v1.0.28 - 2025-02-27
+^^^^^^^^^^^^^^^^^^^^
+
+**Added**
+
+- Add `papi_get_rate_limit`
+- Add docs for `create_oco_order`
+- Add `uiKlines` support
+- Add options websocket market streams
+- Add dozens of missing endpoints
+
+v1.0.29 - 2025-05-19
+^^^^^^^^^^^^^^^^^^^^
+
+**Fixed**
+
+- Ws tesnet spot URLs update
+
+
+v1.0.28 - 2025-02-27
+^^^^^^^^^^^^^^^^^^^^
+
+**Added**
+
+- Add `papi_get_rate_limit`
+- Add docs for `create_oco_order`
+- Add `uiKlines` support
+- Add options websocket market streams
+- Add dozens of missing endpoints
+
+
+**Fixed**
+
+- Ws API not allowing more than 100 requests
+- Return empty json instead of throwing error on empty response
+- Json_dumps when using orjson
+
+
+v1.0.27 - 2024-12-31
+^^^^^^^^^^^^^^^^^^^^
+
+**Added**
+
+- Add futures_taker_long_short_ratio endpoint, thanks to @ngoclam9415
+- Add portfolio margin user data streams
+
+
+**Fixed**
+
+- Close read loop before closing websocket
+- Fix threaded_stream
+- Closing keepAliveWebsocker fix
+
+v1.0.26 - 2024-12-23
+^^^^^^^^^^^^^^^^^^^^
+
+**Added**
+
+- Websockets docs
+- support for microseconds time unit
+- futures data link endpoints
+- return type to _get_account_socket  thanks to @zhen1007
+- futures_index_price_constituents endpoint
+
+
+**Fixed**
+
+- FuturesDepthCacheManager and OptionsDepthCacheManager to __init__
+- EDDSA random error
+
+
+v1.0.25 - 2024-12-05
+^^^^^^^^^^^^^^^^^^^^
+
+**Added**
+
+- borrow-repay endpoints (margin_interest_rate_history/margin_get_borrow_repay_records/margin_borrow_repay/etc)
+- futures_mark_price_klines thanks to @zhen1007
+- futures_index_price_klines and futures_premium_index_klines
+- HistoricalKlinesType enum enhanced
+- block trades endpoints (options_create_block_trade_order, options_cancel_block_trade_order, etc)
+- dapi asyn endpoints (futures_coin_account_order_history_download, futures_coin_account_order_history_download_link, etc)
+
+
+**Fixed**
+
+- Removed unnecessary logs with `error` level
+- Remove CANCEL read_loop error log
+- Fix error type for when message queue is full
+- Fixes that if first connect fails it would not throw and let the user wait indefinitely
+- Improves error handling passing to user error type for different scenarios
+
+
+v1.0.24 - 2024-11-28
+^^^^^^^^^^^^^^^^^^^^
+
+**Added**
+
+- Exposed internal classes for easier subclassing
+
+
+**Fixed**
+
+- Fixed package outdated structure causing import errors
+
+v1.0.23 - 2024-11-27
+^^^^^^^^^^^^^^^^^^^^
+
+**Added**
+
+- CRUD over Websockets (create/fetch/edit/cancel) through Websockets
+- orjson support
+- overridable `headers` per request
+- added default recvWindow parameter
+- Proxy support for Websockets
+- Gift card API
+- `cancel_replace_order`, `cancel_all_open_orders`  and `cancel_all_open_margin_orders` thanks to @m-HD
+- missing `futures_modify_order` from async client
+- ruff format
+- missing endpoint for `futures_edit_order`
+
+**Fixed**
+
+- updated `create_oco_order` endpoint
+- batch orders signature issue
+- `fail_connection` issue related to the `websockets` upgrade
+- `eddsa` signature issue
+
+
+v1.0.22 - 2024-10-29
+^^^^^^^^^^^^^^^^^^^^
+
+**Added**
+
+- futures all tickers stream
+- futures coin-m all tickers stream
+
+**Fixed**
+
+- hang in the ThreadedApiManager
+
+
+v1.0.21 - 2024-10-23
+^^^^^^^^^^^^^^^^^^^^
+
+**Added**
+
+- Some new endpoints
+
+**Fixed**
+
+- url encoding for coin-m post endpoints
+- batch order endpoint
+- Some minor bug fixes
+
+v1.0.20 - 2024-10-22
+^^^^^^^^^^^^^^^^^^^^
+
+**Added**
+
+- EDDSA authentication
+- Portfolio Margin endpoints
+- Some new futures endpoints
+- Proxy support for the AsyncClient
+- Version override is possible now through `params`
+
+**Fixed**
+
+- Migrated `positionRisk` to v3
+- Fixed the error `AttributeError("'Connect' object has no attribute 'protocol'")`
+- Some minor bug fixes
 
 v1.0.19 - 2023-08-11
 ^^^^^^^^^^^^^^^^^^^^

@@ -2,5 +2,5 @@ aiohttp
 dateparser
 pycryptodome
 requests
-ujson
 websockets
+websockets_proxy; python_version >= '3.8'

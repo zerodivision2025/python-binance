@@ -18,9 +18,11 @@ def date_to_milliseconds(date_str):
     :type date_str: str
     """
     # get epoch value in UTC
+    assert date_str is not None
     epoch = datetime.utcfromtimestamp(0).replace(tzinfo=pytz.utc)
     # parse our date string
     d = dateparser.parse(date_str)
+    assert d is not None
     # if the date is not timezone aware apply UTC timezone
     if d.tzinfo is None or d.tzinfo.utcoffset(d) is None:
         d = d.replace(tzinfo=pytz.utc)
@@ -41,12 +43,7 @@ def interval_to_milliseconds(interval):
          int value of interval in milliseconds
     """
     ms = None
-    seconds_per_unit = {
-        "m": 60,
-        "h": 60 * 60,
-        "d": 24 * 60 * 60,
-        "w": 7 * 24 * 60 * 60
-    }
+    seconds_per_unit = {"m": 60, "h": 60 * 60, "d": 24 * 60 * 60, "w": 7 * 24 * 60 * 60}
 
     unit = interval[-1]
     if unit in seconds_per_unit:
@@ -87,7 +84,7 @@ def get_historical_klines(symbol, interval, start_str, end_str=None):
 
     # convert interval to useful value in seconds
     timeframe = interval_to_milliseconds(interval)
-
+    assert timeframe is not None
     # convert our date strings to milliseconds
     start_ts = date_to_milliseconds(start_str)
 
@@ -106,7 +103,7 @@ def get_historical_klines(symbol, interval, start_str, end_str=None):
             interval=interval,
             limit=limit,
             startTime=start_ts,
-            endTime=end_ts
+            endTime=end_ts,
         )
 
         # handle the case where our start date is before the symbol pair listed on Binance
@@ -146,11 +143,8 @@ klines = get_historical_klines(symbol, interval, start, end)
 # open a file with filename including symbol, interval and start and end converted to milliseconds
 with open(
     "Binance_{}_{}_{}-{}.json".format(
-        symbol,
-        interval,
-        date_to_milliseconds(start),
-        date_to_milliseconds(end)
+        symbol, interval, date_to_milliseconds(start), date_to_milliseconds(end)
     ),
-    'w'  # set file write mode
+    "w",  # set file write mode
 ) as f:
     f.write(json.dumps(klines))

@@ -1,10 +1,13 @@
 coverage
-flake8
 pytest
 pytest-asyncio
 pytest-cov
-pytest-flake8
-python-coveralls
+pytest-xdist
+pytest-rerunfailures
+pytest-timeout
 requests-mock
 tox
 setuptools
+aioresponses
+pre-commit
+orjson
